@@ -1,0 +1,38 @@
+#{extends 'main.html'/}
+
+
+<h1>Calendrier ${calendrier.getDisplayName(calendrier.MONTH, calendrier.LONG, locale)} ${calendrier.get(calendrier.YEAR)}</h1>
+	
+
+<section class="panel row">
+	<section class="panel-headdind col-xs-12">
+		<h2>${calendrier.getDisplayName(calendrier.MONTH, calendrier.LONG, locale)} ${calendrier.get(calendrier.YEAR)}</h2>
+	</section>
+	<section class="panel-body col-xs-12 row">
+		<section class="col-xs-12 row" id="ligne-jours">
+			<strong class="col-xs-1">Lun.</strong>
+			<strong class="col-xs-1">Mar.</strong>
+			<strong class="col-xs-1">Mer.</strong>
+			<strong class="col-xs-1">Jeu.</strong>
+			<strong class="col-xs-1">Ven.</strong>
+			<strong class="col-xs-1">Sam.</strong>
+			<strong class="col-xs-1">Dim.</strong>
+		</section>
+		<section class="col-xs-12 row" id="bloc-jours">
+			
+			#{list items:1..calendrier.getActualMaximum(calendrier.DAY_OF_MONTH), as:'numJourMois'}
+				
+				#{if numJourMois%7 == 1}
+					<section class="col-xs-12 row">
+				#{/if}
+				#{elseif}
+					</section>
+				#{/elseif}
+						
+				
+				<span class="col-xs-1">${numJourMois}</span>
+			#{/list}
+			
+		</section>
+	</section>
+</section>
