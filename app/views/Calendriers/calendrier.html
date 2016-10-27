@@ -19,16 +19,20 @@
 			<strong class="col-xs-1">Dim.</strong>
 		</section>
 		<section class="col-xs-12 row" id="bloc-jours">
+			<section class="col-xs-12 row">
+					<span class="col-xs-1">${calendrier.get(calendrier.MONTH)}</span>
+			
+			
+			#{list items:1..calendrier.DAY_OF_WEEK-2, as:'nbJoursAvantDebut'}
+				<span class="col-xs-1">&nbsp;</span>
+			#{/list}
+			
 			
 			#{list items:1..calendrier.getActualMaximum(calendrier.DAY_OF_MONTH), as:'numJourMois'}
-				
-				#{if numJourMois%7 == 1}
-					<section class="col-xs-12 row">
-				#{/if}
-				#{elseif}
+				#{if numJourMois_index%7 == 0}
 					</section>
-				#{/elseif}
-						
+					<span class="col-xs-1">&nbsp;</span>
+				#{/if}
 				
 				<span class="col-xs-1">${numJourMois}</span>
 			#{/list}
