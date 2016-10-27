@@ -15,7 +15,7 @@ public class Calendriers extends Controller {
 		Calendar calendrier = new GregorianCalendar(2016, 9, 31);
 		calendrier.set(calendrier.DATE, calendrier.getActualMinimum(calendrier.DATE));
 		Locale locale = new Locale("Fr");
-		
+		for()
 		
 		render(calendrier, locale);
 	}
