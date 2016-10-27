@@ -1,0 +1,19 @@
+.panel{
+	width: 40%;
+	margin: auto;
+}
+
+.panel-heading h2,
+#bloc-jours td,
+#ligne-jours th{
+	text-align: center;
+}
+
+.panel-body{
+	margin: auto;
+}
+
+#bloc-jours td{
+	padding: 3px;
+	width: 0.5%;
+}

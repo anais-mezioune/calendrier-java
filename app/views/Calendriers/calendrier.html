@@ -1,72 +1,36 @@
 #{extends 'main.html'/}
 
-
 <h1>Calendrier ${calendrier.getDisplayName(calendrier.MONTH, calendrier.LONG, locale)} ${calendrier.get(calendrier.YEAR)}</h1>
 	
-
-<section class="panel row">
-	<section class="panel-headdind col-xs-12">
+<section class="panel">
+	<section class="panel-heading">
 		<h2>${calendrier.getDisplayName(calendrier.MONTH, calendrier.LONG, locale)} ${calendrier.get(calendrier.YEAR)}</h2>
 	</section>
-	<section class="panel-body col-xs-12 row">
-		<section class="col-xs-12 row" id="ligne-jours">
-			<strong class="col-xs-1">Lun.</strong>
-			<strong class="col-xs-1">Mar.</strong>
-			<strong class="col-xs-1">Mer.</strong>
-			<strong class="col-xs-1">Jeu.</strong>
-			<strong class="col-xs-1">Ven.</strong>
-			<strong class="col-xs-1">Sam.</strong>
-			<strong class="col-xs-1">Dim.</strong>
-		</section>
-		<section class="col-xs-12 row" id="bloc-jours">
-			<section class="col-xs-12 row">
-					<span class="col-xs-1">${calendrier.get(calendrier.MONTH)}</span>
-			
-			
-			#{list items:1..calendrier.DAY_OF_WEEK-2, as:'nbJoursAvantDebut'}
-				<span class="col-xs-1">&nbsp;</span>
-			#{/list}
-			
-			
-			#{list items:1..calendrier.getActualMaximum(calendrier.DAY_OF_MONTH), as:'numJourMois'}
-				#{if numJourMois_index%7 == 0}
-					</section>
-					<span class="col-xs-1">&nbsp;</span>
-				#{/if}
-				
-				<span class="col-xs-1">${numJourMois}</span>
-			#{/list}
-			
-		</section>
-	</section>
-</section>
-
-
-<section>
-	<table style="width: 100%">
-		<tr>
-			<th>lu</th>
-			<th>ma</th>
-			<th>me</th>
-			<th>je</th>
-			<th>ve</th>
-			<th>sa</th>
-			<th>di</th>
-		</tr>
-		<tbody>
-			#{list days, as:'day'}
-				#{if day_index == 0}
-                	<tr>
-				#{/if}
-					<td class="${now?.format("dd-MM-YYYY").equals(day) ? "active" : ""}" style="height: 30px; border:1px solid grey; ${"empty".equals(day) ? "background-color: #f2f2f2;" : ""}">${"empty".equals(day) ? "" : day}</td>
-				#{if day_index % 7 == 0}
-                	</tr>
-					#{if day_index < days.size() - 1}
-                		<tr>
+	<table class="panel-body">
+		<thead class="" id="ligne-jours">
+			<tr>
+				<th class="">Lun.</th>
+				<th class="">Mar.</th>
+				<th class="">Mer.</th>
+				<th class="">Jeu.</th>
+				<th class="">Ven.</th>
+				<th class="">Sam.</th>
+				<th class="">Dim.</th>
+			</tr>
+		</thead>
+		<tbody id="bloc-jours">
+				#{list days, as:'day'}
+					#{if day_index == 0}
+	                	<tr>
 					#{/if}
-				#{/if}
-
-			#{/list}
-        </tbody>
-    </table>
+						<td id="date_${day}" class="${now?.format('dd').equals(day) ? 'active' : ''}" style="height: 30px; border:1px solid grey; ${'empty'.equals(day) ? 'background-color: #f2f2f2;' : ''}">${"empty".equals(day) ? "" : day}</td>
+					#{if day_index % 7 == 0}
+	                	</tr>
+						#{if day_index < days.size() - 1}
+	                		<tr class="">
+						#{/if}
+					#{/if}
+				#{/list}
+		</tbody>
+	</table>
 </section>

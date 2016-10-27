@@ -30,7 +30,7 @@ public class Calendriers extends Controller {
 		// Boucle sur l'ensemble des jours du mois
 		int totalDaysOfmonth = calendrier.getActualMaximum(Calendar.DAY_OF_MONTH);
 		for (int i = 1; i < totalDaysOfmonth + 1; i ++){
-			days.add((i < 10 ? "0" + i : i) + "-" + String.valueOf(month) + "-" + year);
+			days.add((i < 10 ? "0" + i : i) + "") ; //+ "-" + String.valueOf(month) + "-" + year);
 		}
 
 		// Déduction du nombre des jours du mois suivant pour combler les cellules du tableau
