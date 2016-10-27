@@ -1,0 +1,38 @@
+# Ignore all dotfiles...
+.*
+# except for .gitignore
+!.gitignore
+
+# Ignore Play! working directory #
+db
+data
+!conf/initial-data/data
+!conf/initial-data/tests/data
+documents
+eclipse
+lib
+!public/lib
+log
+logs
+tmp
+out
+test-result
+eclipse
+nbproject
+*.iml
+*.ipr
+*.iws
+*.ids
+server.pid
+modules
+cobertura.ser
+atlassian-ide-plugin.xml
+node_modules
+test/features/report
+test/features/screenshots
+!conf/sql
+!app/exceptions
+!app/model
+!app/services
+!app/validators
+!public/lib

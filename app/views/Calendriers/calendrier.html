@@ -40,3 +40,33 @@
 		</section>
 	</section>
 </section>
+
+
+<section>
+	<table style="width: 100%">
+		<tr>
+			<th>lu</th>
+			<th>ma</th>
+			<th>me</th>
+			<th>je</th>
+			<th>ve</th>
+			<th>sa</th>
+			<th>di</th>
+		</tr>
+		<tbody>
+			#{list days, as:'day'}
+				#{if day_index == 0}
+                	<tr>
+				#{/if}
+					<td class="${now?.format("dd-MM-YYYY").equals(day) ? "active" : ""}" style="height: 30px; border:1px solid grey; ${"empty".equals(day) ? "background-color: #f2f2f2;" : ""}">${"empty".equals(day) ? "" : day}</td>
+				#{if day_index % 7 == 0}
+                	</tr>
+					#{if day_index < days.size() - 1}
+                		<tr>
+					#{/if}
+				#{/if}
+
+			#{/list}
+        </tbody>
+    </table>
+</section>
