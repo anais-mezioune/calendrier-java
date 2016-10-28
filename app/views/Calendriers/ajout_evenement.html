@@ -1,0 +1,11 @@
+#{extends 'main.html'/}
+
+<h1>Ajout d'un événement</h1>
+
+<form action="@{Calendriers.save_evenement}" id="ajout-evenement" method="post">
+	<input name="id_date" id="id_date" type="hidden" value="${id_date}" />
+	<input name="nom_evenement" id="nom-evenement" type="text" placeholder="Nom de l'événement" autofocus />
+	<textarea name="description" placeholder="Description de l'événement" cols="50" rows="8"></textarea>
+	<input type="submit" name="ajouter-evenement" value="Ajouter" />
+</form>
+

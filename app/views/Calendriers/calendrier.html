@@ -6,6 +6,7 @@
 	<section class="panel-heading">
 		<h2>${calendrier.getDisplayName(calendrier.MONTH, calendrier.LONG, locale)} ${calendrier.get(calendrier.YEAR)}</h2>
 	</section>
+	
 	<table class="panel-body">
 		<thead class="" id="ligne-jours">
 			<tr>
@@ -23,7 +24,14 @@
 					#{if day_index == 0}
 	                	<tr>
 					#{/if}
-						<td id="date_${day}" class="${now?.format('dd').equals(day) ? 'active' : ''}" style="height: 30px; border:1px solid grey; ${'empty'.equals(day) ? 'background-color: #f2f2f2;' : ''}">${"empty".equals(day) ? "" : day}</td>
+						<td id="date_${day}" class="${now?.format('dd').equals(day) ? 'active' : ''}" style="height: 30px; border:1px solid grey; ${'empty'.equals(day) ? 'background-color: #f2f2f2;' : ''}">
+							${"empty".equals(day) ? "" : day}
+							<a class="modal-trigger" data-id="${day}" data-toggle="modal" data-target="#ajout-evenement" title="Ajouter un événement" href="#" >+</a>
+							#{if !"empty".equals(day) && new Long(day.substring(0,2)) == id_date}
+								<div>${nom}</div>
+								<div>${description}</div>
+							#{/if}
+						</td>
 					#{if day_index % 7 == 0}
 	                	</tr>
 						#{if day_index < days.size() - 1}
@@ -34,3 +42,4 @@
 		</tbody>
 	</table>
 </section>
+

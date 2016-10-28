@@ -10,11 +10,36 @@
         <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
     </head>
     <body>
-        #{doLayout /}
-        
-        <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
-        <script src="@{'/public/javascripts/bootstrap.js'}" type="text/javascript" charset="${_response_encoding}"></script>
-         <script src="@{'/public/javascripts/calendrier.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+	#{doLayout /}
+
+
+	
+	<!-- Modal -->
+	<div class="modal fade" id="ajout-evenement" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h1>Ajout d'un événement</h1>
+	      </div>
+	      <div class="modal-body">
+	      	<form action="@{Calendriers.save_evenement}" id="ajout-evenement" method="post">
+				<input name="id_date" id="id_date" type="hidden" />
+				<input name="nom" id="nom-evenement" type="text" placeholder="Nom de l'événement" autofocus />
+				<textarea name="description" placeholder="Description de l'événement" cols="50" rows="8"></textarea>
+				<input type="submit" name="ajouter-evenement" value="Ajouter" />
+			</form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="@{'/public/javascripts/bootstrap.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+    <script src="@{'/public/javascripts/calendrier.js'}" type="text/javascript" charset="${_response_encoding}"></script>
         #{get 'moreScripts' /}
     </body>
+    
 </html>
