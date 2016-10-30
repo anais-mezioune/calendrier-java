@@ -18,10 +18,58 @@
 	width: 0.5%;
 }
 
+#bloc-jours a{
+	color: black;
+}
+
+#bloc-jours .active,
+#bloc-jours .active a{
+	background: blue;
+	color: white;
+}
+
 #ajout-evenement{
 	padding: 8px;
 }
 
 #nom-evenement{
 	margin-bottom: 15px;
+}
+
+.evenement{
+	background: blue;
+    border-radius: 10% 10% 0% 0%;
+    padding: 3px;
+    margin: 0 auto 5px auto;
+    color: white;
+    font-size: 12px;
+    width: 110px;
+}
+.evenement p{
+	margin: 0;
+    padding: 0;
+}
+
+.nom-evenement{
+	font-weight: bold;
+	min-height: 17px;
+}
+
+.nom-evenement p{
+	float: left;
+	width: 50%;
+	padding-right: 3px;
+}
+
+.nom-evenement p:last-child{
+	text-align: right;
+}
+
+.description-evenement{
+	clear: both;
+	margin: 0;
+    padding: 5px 0 0 0;
+    font-size: 11px;
+    display: none;
+    border-top: 1px solid;
 }

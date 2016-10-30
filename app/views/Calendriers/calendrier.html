@@ -28,8 +28,10 @@
 							${"empty".equals(day) ? "" : day}
 							<a class="modal-trigger" data-id="${day}" data-toggle="modal" data-target="#ajout-evenement" title="Ajouter un événement" href="#" >+</a>
 							#{if !"empty".equals(day) && new Long(day.substring(0,2)) == id_date}
-								<div>${nom}</div>
-								<div>${description}</div>
+								<div class="evenement">
+									<div class="nom-evenement"><p>${nom}</p><p>+</p></div>
+									<div class="description-evenement"><p>${description}</p></div>
+								</div>
 							#{/if}
 						</td>
 					#{if day_index % 7 == 0}
