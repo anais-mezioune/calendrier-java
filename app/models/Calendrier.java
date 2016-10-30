@@ -1,5 +1,6 @@
 package models;
 
+import services.CalendrierService;
 import java.util.*;
 
 import play.*;
@@ -12,10 +13,15 @@ import javax.persistence.Entity;
 @Entity
 public class Calendrier extends Model {
 
-    public Calendar calendrier = new GregorianCalendar(2016, 9, 31);;
+    public Calendar calendar;
 	public Date now;
-    public Locale locale = new Locale("Fr");;
-    public List<String> days = getDays(calendrier, locale);
+    public Locale locale;
+    public List<String> days;
     
-
+    public Calendrier(){
+    	this.calendar = new GregorianCalendar(2016, 9, 31);
+    	this.now = new Date();
+    	this.locale = new Locale("Fr");
+    	this.days = CalendrierService.getDays(calendar, locale);
+    }
 }

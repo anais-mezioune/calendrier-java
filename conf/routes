@@ -4,8 +4,10 @@
 
 # Home page
 GET     /                                       Calendriers.calendrier
-GET     /ajout_evenement                        Calendriers.ajout_evenement
-POST    /save_evenement                         Calendriers.save_evenement
+
+# Evvenement
+POST    /save_evenement                         Evenements.save_evenement
+GET     /ajout_evenement                        Evenements.ajout_evenement
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

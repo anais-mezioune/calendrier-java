@@ -22,7 +22,7 @@
 	        <h1>Ajout d'un événement</h1>
 	      </div>
 	      <div class="modal-body">
-	      	<form action="@{Calendriers.save_evenement}" id="ajout-evenement" method="post">
+	      	<form action="@{Evenements.save_evenement}" id="ajout-evenement" method="post">
 				<input name="id_date" id="id_date" type="hidden" />
 				<input name="nom" id="nom-evenement" type="text" placeholder="Nom de l'événement" autofocus />
 				<textarea name="description" placeholder="Description de l'événement" cols="50" rows="8"></textarea>
