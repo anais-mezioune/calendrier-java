@@ -15,7 +15,7 @@ public class Calendriers extends Controller {
 		Calendar calendar = calendrier.calendar;
 		Locale locale = calendrier.locale;
 		List<String> days = calendrier.days;
-		Date now = calendrier.now;
+		String now = calendrier.now;
 		render(calendar, locale, days, now);
 	}
 }

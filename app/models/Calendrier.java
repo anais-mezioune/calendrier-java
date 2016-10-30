@@ -1,6 +1,8 @@
 package models;
 
 import services.CalendrierService;
+
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import play.*;
@@ -14,13 +16,15 @@ import javax.persistence.Entity;
 public class Calendrier extends Model {
 
     public Calendar calendar;
-	public Date now;
+	public String now;
     public Locale locale;
     public List<String> days;
+    public SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
     
     public Calendrier(){
     	this.calendar = new GregorianCalendar(2016, 9, 31);
-    	this.now = new Date();
+    	Date date = new Date();
+    	this.now = dateFormat.format(date);
     	this.locale = new Locale("Fr");
     	this.days = CalendrierService.getDays(calendar, locale);
     }
