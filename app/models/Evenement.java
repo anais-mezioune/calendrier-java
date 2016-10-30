@@ -13,7 +13,7 @@ public class Evenement extends Model{
 	public String nom;
 	public String description;
 	
-	public Evenement(@Required String nom, @Required String description){
+	public Evenement(@Required String nom, String description){
 		this.nom = nom;
 		this.description = description;
 	}
