@@ -5,7 +5,7 @@ import java.util.*;
 import play.*;
 import play.mvc.*;
 import play.data.validation.*;
-import play.db.jpa.Model;s
+import play.db.jpa.Model
 
 import javax.persistence.Entity;
 
